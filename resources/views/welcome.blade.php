@@ -20,7 +20,7 @@
 
 <body class="font-sans antialiased dark:bg-black dark:text-white/50">
     <livewire>
-        <livewire:counter />
+        <livewire:todos />
 </body>
 
 </html>
