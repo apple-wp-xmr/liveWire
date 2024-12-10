@@ -12,28 +12,28 @@
     <!-- Navigation Bar -->
     <nav class="bg-blue-500 text-white py-4 shadow-md">
         <div class="container mx-auto flex justify-center space-x-6">
-            <a href="/counter" @class([
+            <a wire:navigate href="/counter" @class([
                 'current font-bold text-blue-800 bg-white px-4 py-2 rounded-lg' => request()->is(
                     '/counter'),
                 'px-4 py-2 rounded-lg hover:bg-blue-600',
             ])>
                 Counter
             </a>
-            <a href="/todos" @class([
+            <a wire:navigate href="/todos" @class([
                 'current font-bold text-blue-800 bg-white px-4 py-2 rounded-lg' => request()->is(
                     '/todos'),
                 'px-4 py-2 rounded-lg hover:bg-blue-600',
             ])>
                 Todo
             </a>
-            <a href="{{ route('posts') }}" @class([
+            <a wire:navigate href="{{ route('posts') }}" @class([
                 'current font-bold text-blue-800 bg-white px-4 py-2 rounded-lg' => request()->is(
                     '/posts'),
                 'px-4 py-2 rounded-lg hover:bg-blue-600',
             ])>
                 Posts
             </a>
-            <a href="/form" @class([
+            <a wire:navigate href="/form" @class([
                 'current font-bold text-blue-800 bg-white px-4 py-2 rounded-lg' => request()->is(
                     '/form'),
                 'px-4 py-2 rounded-lg hover:bg-blue-600',

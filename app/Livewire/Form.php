@@ -21,7 +21,7 @@ class Form extends Component
             'title' => $this->title,
             'content' => $this->content
         ]);
-        $this->redirect(route('posts'));
+        $this->redirect(route('posts'), navigate:true);
     }
     public function render()
     {
