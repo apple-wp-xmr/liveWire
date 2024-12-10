@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('content')->nullable();
+            $table->boolean('archive')->default(false); // Add this column if it doesn't exist
             $table->timestamps();
         });
     }
