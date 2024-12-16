@@ -19,8 +19,7 @@
 </head>
 
 <body class="font-sans antialiased dark:bg-black dark:text-white/50">
-    <livewire:todos />
-    <p>hi there, we need you to go to specific link</p>
+    <p>start page</p>
 </body>
 
 </html>
