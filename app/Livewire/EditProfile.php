@@ -19,10 +19,11 @@ class EditProfile extends Component
     }
 
     public function save(){
-        
+
         $this->user->username = $this->username;
         $this->user->bio = $this->bio;
 
+        sleep(1);
         $this->user->save();
     }
 
