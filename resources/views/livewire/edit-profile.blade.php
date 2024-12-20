@@ -1,26 +1,20 @@
 <div>
-    <h1 class="mb-4 text-2xl text-slate-700 font-semibold">Update your profile...</h1>
+    {{-- <h1 class="mb-4 text-2xl text-slate-700 font-semibold">Update your profile...</h1> --}}
 
     <form wire:submit="save" class="max-w-[30rem] mx-auto flex flex-col gap-6 bg-white rounded-lg shadow p-6">
         <label class="flex flex-col gap-2">
             <h3 class="font-medium text-slate-700 text-base">Username <span class="text-red-500 opacity-75"
                     aria-hidden="true">*</span></h3>
 
-            <input wire:model.blur="username" @class([
+            <input @class([
                 'px-3 py-2 rounded-lg',
-                'border border-slate-300' => $errors->missing('form.username'),
-                'border-2 border-red-500' => $errors->has('form.username'),
-            ])
-                @error('form.username')
-                    aria-invalid="true"
-                    aria-description="{{ $message }}"
-                @enderror>
-
-            @error('form.username')
+                'border border-slate-300' => false,
+                'border-2 border-red-500' => false,
+            ])>
+            @error('username')
                 <p class="text-sm text-red-500" aria-live="assertive">{{ $message }}</p>
             @enderror
         </label>
-
         <label class="flex flex-col gap-2">
             <h3 class="font-medium text-slate-700 text-base">Bio</h3>
 
@@ -29,9 +23,10 @@
 
         <div class="flex">
             <button type="submit"
-                class="relative w-full bg-blue-500 py-3 px-8 rounded-lg text-white font-medium disabled:cursor-not-allowed disabled:opacity-50 disabled:cursor-not-allowed">
+                class="relative w-full bg-blue-500 py-3 px-8 rounded-lg text-white font-medium disabled:opacity-50 disabled:cursor-not-allowed">
                 <span>Save</span>
-                <svg aria-hidden="true" class="w-4 h-4 animate-spin inline" viewBox="0 0 100 101" fill="none"
+                <svg wire:loading.inline-block wire:target='submit' aria-hidden="true"
+                    class="w-8 h-8 animate-spin inline" viewBox="0 0 100 101" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
@@ -44,4 +39,18 @@
             </button>
         </div>
     </form>
+
+    <div class="flex items-center p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400 max-w-40 mx-auto mt-5"
+        role="alert">
+        <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor" viewBox="0 0 20 20">
+            <path
+                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+        </svg>
+        <span class="sr-only">Info</span>
+        <div>
+            <span class="font-medium">Success alert!</span>
+        </div>
+    </div>
+
 </div>
