@@ -24,7 +24,6 @@ class EditProfile extends Component
 
     public function save(){
         
-        $this->validate();
         $this->user->username = $this->username;
         $this->user->bio = $this->bio;
         $this->user->save();
