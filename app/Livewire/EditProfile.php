@@ -11,7 +11,8 @@ class EditProfile extends Component
 {
 
     public User $user;
-
+    public $isFormSuccess = false;
+    #[Validate]
     public $username = '';
     public $bio = '';
 
@@ -23,11 +24,18 @@ class EditProfile extends Component
     }
 
     public function save(){
-        
+        $this->validate();
         $this->user->username = $this->username;
         $this->user->bio = $this->bio;
         $this->user->save();
-        sleep(1);
+        $this->isFormSuccess = true;
+        // sleep(1);
+    }
+
+    public function rules(){
+        return [
+            'username' => ['required', Rule::unique('users', 'username')->ignore($this->user)]
+        ];
     }
 
     public function render()

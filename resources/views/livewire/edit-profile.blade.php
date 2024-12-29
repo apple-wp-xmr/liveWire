@@ -6,10 +6,10 @@
             <h3 class="font-medium text-slate-700 text-base">Username<span class="text-red-500 opacity-75"
                     aria-hidden="true">*</span></h3>
 
-            <input wire:model="username" @class([
+            <input wire:model.blur="username" @class([
                 'px-3 py-2 rounded-lg',
-                'border border-slate-300' => false,
-                'border-2 border-red-500' => false,
+                'border border-slate-300' => $errors->missing('username'),
+                'border-2 border-red-500' => $errors->has('username'),
             ])>
             @error('username')
                 <p class="text-sm text-red-500" aria-live="assertive">{{ $message }}</p>
@@ -25,8 +25,8 @@
             <button type="submit"
                 class="relative w-full bg-blue-500 py-3 px-8 rounded-lg text-white font-medium disabled:opacity-50 disabled:cursor-not-allowed">
                 <span>Save</span>
-                <svg aria-hidden="true" class="w-8 h-8 animate-spin inline" viewBox="0 0 100 101" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
+                <svg wire:loading wire:target='save' aria-hidden="true" class="w-8 h-8 animate-spin inline"
+                    viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
                         fill="white" />
@@ -39,7 +39,9 @@
         </div>
     </form>
 
-    {{-- <div class="flex items-center p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400 max-w-40 mx-auto mt-5"
+    <div x-show='$wire.isFormSuccess' x-transition.out.opacity.duration2000s
+        x-effect='if($wire.isFormSuccess){ setTimeout(()=>{$wire.isFormSuccess = false}, 3000) }'
+        class="flex items-center p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400 max-w-40 mx-auto mt-5"
         role="alert">
         <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
             fill="currentColor" viewBox="0 0 20 20">
@@ -50,6 +52,6 @@
         <div>
             <span class="font-medium">Success alert!</span>
         </div>
-    </div> --}}
+    </div>
 
 </div>
