@@ -20,6 +20,23 @@
 
             <textarea wire:model="bio" rows="4" class="px-3 py-2 border border-slate-300 rounded-lg"></textarea>
         </label>
+        <fieldset class="flex flex-col gap-2">
+            <div>
+                <legend class="font-medium text-slate-700 text-base">Receive emails?</legend>
+            </div>
+
+            <div class="flex gap-6">
+                <label class="flex items-center gap-2">
+                    <input wire:model.boolean="form.receive_emails" type="radio" name="receive_emails" value="true">
+                    Yes
+                </label>
+
+                <label class="flex items-center gap-2">
+                    <input wire:model.boolean="form.receive_emails" type="radio" name="receive_emails" value="false">
+                    No
+                </label>
+            </div>
+        </fieldset>
 
         <div class="flex">
             <button type="submit"
@@ -41,6 +58,7 @@
 
     <div x-show='$wire.isFormSuccess' x-transition.out.opacity.duration2000s
         x-effect='if($wire.isFormSuccess){ setTimeout(()=>{$wire.isFormSuccess = false}, 3000) }'
+        x-cloak
         class="flex items-center p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400 max-w-40 mx-auto mt-5"
         role="alert">
         <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
