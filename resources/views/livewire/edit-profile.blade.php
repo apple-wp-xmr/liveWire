@@ -6,10 +6,10 @@
             <h3 class="font-medium text-slate-700 text-base">Username<span class="text-red-500 opacity-75"
                     aria-hidden="true">*</span></h3>
 
-            <input wire:model.blur="username" @class([
+            <input wire:model.blur="form.username" @class([
                 'px-3 py-2 rounded-lg',
-                'border border-slate-300' => $errors->missing('username'),
-                'border-2 border-red-500' => $errors->has('username'),
+                'border border-slate-300' => $errors->missing('form.username'),
+                'border-2 border-red-500' => $errors->has('form.username'),
             ])>
             @error('username')
                 <p class="text-sm text-red-500" aria-live="assertive">{{ $message }}</p>
@@ -18,7 +18,7 @@
         <label class="flex flex-col gap-2">
             <h3 class="font-medium text-slate-700 text-base">Bio</h3>
 
-            <textarea wire:model="bio" rows="4" class="px-3 py-2 border border-slate-300 rounded-lg"></textarea>
+            <textarea wire:model="form.bio" rows="4" class="px-3 py-2 border border-slate-300 rounded-lg"></textarea>
         </label>
         <fieldset class="flex flex-col gap-2">
             <div>
