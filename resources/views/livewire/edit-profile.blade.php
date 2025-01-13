@@ -20,6 +20,24 @@
 
             <textarea wire:model="form.bio" rows="4" class="px-3 py-2 border border-slate-300 rounded-lg"></textarea>
         </label>
+        <label class="flex flex-col gap-2">
+            <h3 class="font-medium text-slate-700 text-base">Country<span class="text-red-500 opacity-75"
+                    aria-hidden="true">*</span></h3>
+        
+            <select wire:model.blur="form.country" @class([
+                'px-3 py-2 rounded-lg',
+                'border border-slate-300' => $errors->missing('form.country'),
+                'border-2 border-red-500' => $errors->has('form.country'),
+            ])>
+                <option value="" disabled>Select your country</option>
+ 
+            </select>
+        
+            @error('form.country')
+                <p class="text-sm text-red-500" aria-live="assertive">{{ $message }}</p>
+            @enderror
+        </label>
+        
         <fieldset class="flex flex-col gap-2">
             <div>
                 <legend class="font-medium text-slate-700 text-base">Receive emails?</legend>
@@ -34,6 +52,23 @@
                 <label class="flex items-center gap-2">
                     <input wire:model.boolean="form.receive_emails" type="radio" name="receive_emails" value="false">
                     No
+                </label>
+            </div>
+        </fieldset>
+        <fieldset x-show='$wire.form.receive_emails' class="flex flex-col gap-2">
+            <div>
+                <legend class="font-medium text-slate-700 text-base">Email type</legend>
+            </div>
+
+            <div class="flex gap-6">
+                <label class="flex items-center gap-2">
+                    <input wire:model="form.receive_updates" type="checkbox" name="receive_updates" class="rounded">
+                    Receive Updates
+                </label>
+
+                <label class="flex items-center gap-2">
+                    <input wire:model="form.receive_offers" type="checkbox" name="receive_offers" class="rounded">
+                    Receive Offers
                 </label>
             </div>
         </fieldset>
