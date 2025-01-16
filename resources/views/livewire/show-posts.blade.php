@@ -15,7 +15,18 @@
         <!-- Table Body -->
         <tbody>
             @foreach ($posts as $post)
-                <livewire:post-row :key="$post->id" :post="$post">
+                {{-- <livewire:post-row :key="$post->id" :post="$post"> --}}
+
+                <tr class="border-b hover:bg-gray-50">
+                    <td class="px-6 py-4 text-gray-700">{{ $post->title }}</td>
+                    <td class="px-6 py-4 text-gray-500">{{ str($post->content)->words(8) }}</td>
+                    <td class="px-6 py-4">
+                        <button type="button" wire:confirm='are you sure?' wire:click="delete({{ $post->id }})"
+                            class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2 transition">
+                            Delete
+                        </button>               
+                    </td>
+                </tr>
             @endforeach
         </tbody>
     </table>

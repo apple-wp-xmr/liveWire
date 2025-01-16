@@ -30,6 +30,9 @@
                 'border-2 border-red-500' => $errors->has('form.country'),
             ])>
                 <option value="" disabled>Select your country</option>
+                @foreach (App\Enums\Country::cases() as $country)
+                    <option value="{{$country->value}}" >{{$country->label()}}</option>  
+                @endforeach
  
             </select>
         

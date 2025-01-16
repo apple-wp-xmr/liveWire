@@ -1,25 +1,18 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livewire Modals</title>
 
-    <title>Laravel</title>
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
-    <!-- Styles / Scripts -->
-    @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @endif
-
+    {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
+    {{-- <script defer src="https://unpkg.com/@alpinejs/ui@3.13.2-beta.0/dist/cdn.min.js"></script> --}}
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <script defer src="https://unpkg.com/@alpinejs/ui@3.13.2-beta.0/dist/cdn.js"></script>
 </head>
-
-<body class="font-sans antialiased dark:bg-black dark:text-white/50">
-    <p>start page</p>
+<body>
+    <main class="flex justify-center items-start pt-24 bg-slate-200 min-h-screen text-slate-800">
+        <livewire:singup />
+    </main>
 </body>
-
 </html>
