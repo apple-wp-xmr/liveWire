@@ -16,4 +16,8 @@ class ShowPosts extends Component
             'posts' => Post::all()
         ]);
     }
+
+    public function add(){
+        
+    }
 }

@@ -5,11 +5,12 @@ use App\Livewire\Counter;
 use App\Livewire\EditProfile;
 use App\Livewire\Form;
 use App\Livewire\ShowPosts;
+use App\Livewire\Singup;
 use App\Livewire\Todos;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return 'main page';
+Route::get('/', function(){
+    return view('welcome');
 });
 
 Route::get('/dashboard', function () {
