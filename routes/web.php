@@ -19,7 +19,7 @@ Route::get('/dashboard', function () {
 
 Route::group(['middleware' =>['auth']], function () {
     Route::get('/profile', EditProfile::class);
-});
+}); 
 
 
 Route::get('/todos', Todos::class);
