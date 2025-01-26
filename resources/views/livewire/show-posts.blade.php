@@ -73,14 +73,14 @@
                     <td class="px-6 py-4">
                         <x-dialog>
                             <x-dialog.button>
-                                <button type="button" wire:confirm='are you sure?'
+                                <button type="button"
                                     class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2 transition">
                                     Delete
                                 </button>  
                             </x-dialog.button>
                             <x-dialog.panel>
                                 <div class="flex flex-col gap-6" x-data="{ confirmation: '' }">
-                                    <h2 class="font-semibold text-3xl">Are you sure you?</h2>
+                                    <h2 class="font-semibold text-3xl">Are you sure?</h2>
                                     <h2 class="text-lg text-slate-700">This operation is permanant and can be reversed. This post will be deleted forever.</h2>
         
                                     <label class="flex flex-col gap-2">
@@ -94,7 +94,7 @@
                                         </x-dialog.close>
         
                                         <x-dialog.close>
-                                            <button :disabled="confirmation !== 'CONFIRM'" x-on:click=" await $wire.delete({{$post->id}}); $dialog.close()" type="button" class="text-center rounded-xl bg-red-500 text-white px-6 py-2 font-semibold disabled:cursor-not-allowed disabled:opacity-50">Delete</button>
+                                            <button  :disabled="confirmation !== 'CONFIRM'"  x-on:click=" await $wire.delete({{$post->id}}); $dialog.close()" type="button" class="text-center rounded-xl bg-red-500 text-white px-6 py-2 font-semibold disabled:cursor-not-allowed disabled:opacity-50">Delete</button>
                                         </x-dialog.close>
                                     </x-dialog.footer>
                                 </div>
