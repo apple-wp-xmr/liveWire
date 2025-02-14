@@ -2,14 +2,14 @@
 
 namespace App\Livewire;
 
-use App\Livewire\Forms\CreatePost;
 use App\Models\Post;
 use Livewire\Component;
 
 class ShowPosts extends Component
 {
 
-    public function delete(Post $post){
+    public function delete(Post $post)
+    {
         $post->delete();
     }
     public function render()
@@ -18,5 +18,4 @@ class ShowPosts extends Component
             'posts' => Post::all()
         ]);
     }
-
 }

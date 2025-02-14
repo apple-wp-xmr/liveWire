@@ -9,15 +9,15 @@
             <tr class="bg-blue-500 text-white">
                 <th class="px-6 py-3 text-left text-sm font-semibold">Company</th>
                 <th class="px-6 py-3 text-left text-sm font-semibold">Contact</th>
-                <th class="px-6 py-3">
-                    <livewire:add-post-dialog @added="$refresh"  />
+                <th class="px-6 py-3 ">
+                    <livewire:add-post-dialog @added="$refresh" />
                 </th>
             </tr>
         </thead>
         <!-- Table Body -->
         <tbody wire:loading.class="opacity-50">
             @foreach ($posts as $post)
-                <livewire:post-row :key="$post->id" :post="$post" @delete="delete({{$post->id}})"> 
+                <livewire:post-row :key="$post->id" :post="$post" @delete="delete({{ $post->id }})">
             @endforeach
         </tbody>
 
