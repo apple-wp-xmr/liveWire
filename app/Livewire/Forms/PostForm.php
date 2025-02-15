@@ -11,7 +11,7 @@ class PostForm extends Form
 {
     public $title;
     public $content;
-    public $test;
+    public $testim;
 
     public function save()
     {
