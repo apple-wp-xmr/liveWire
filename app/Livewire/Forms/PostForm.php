@@ -7,12 +7,13 @@ use Livewire\Attributes\Validate;
 use Livewire\Form;
 use Illuminate\Validation\Rule;
 
-class CreatePost extends Form
+class PostForm extends Form
 {
     public $title;
     public $content;
-    
-    public function save(){
+
+    public function save()
+    {
         $this->validate();
 
         Post::create([
@@ -22,10 +23,19 @@ class CreatePost extends Form
 
         $this->title = '';
         $this->content = '';
-        
     }
 
-    public function rules(){
+    public function update(Post $post)
+    {
+        $this->validate();
+        $post->update([
+            'title' =>  $this->title,
+            'content' => $this->content,
+        ]);
+    }
+
+    public function rules()
+    {
         return [
             'title' => ['required'],
             'content' => ['required']
