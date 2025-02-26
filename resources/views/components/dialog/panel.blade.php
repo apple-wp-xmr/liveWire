@@ -5,9 +5,17 @@
         <div x-dialog:overlay x-transition.opacity class="fixed inset-0 bg-black/25"></div>
 
         <!-- Panel -->
-        <div class="relative min-h-screen flex items-center justify-center p-4">
+        <div class="relative min-h-screen flex sm:items-center items-end justify-center sm:p-4 ">
             <div x-dialog:panel x-transition.in x-transition.out.opacity
-                class="relative max-w-2xl w-full bg-white rounded-xl shadow-xl overflow-y-auto">
+                class="relative max-w-2xl w-full bg-white rounded-t-xl sm:rounded-b-xl shadow-xl overflow-y-auto">
+
+                <!-- Mobile: Top "grab" handle -->
+                <div class="sm:hidden absolute top-[-10px] left-0 right-0 h-[50px]">
+                    <div class="flex justify-center pt-[12px]">
+                        <div class="bg-gray-400 rounded-full w-[10%] h-[5px]"></div>
+                    </div>
+                </div>
+
 
                 <!-- Close Button -->
                 <div class="absolute top-0 right-0 pt-4 pr-4">
