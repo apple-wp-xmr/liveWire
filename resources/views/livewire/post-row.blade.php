@@ -1,6 +1,6 @@
 <tr class="border-b hover:bg-gray-50">
     <td class="px-6 py-4 text-gray-700">{{ $post->title }}</td>
-    <td class="px-6 py-4 text-gray-500">{{ str($post->content)->words(8) }}</td>
+    <td class="px-6 py-4 text-gray-500 hidden sm:table-cell">{{ str($post->content)->words(8) }}</td>
     {{-- <td class="px-6 py-4">
         <button type="button" wire:confirm='are you sure?' wire:click="delete({{ $post->id }})"
             class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2 transition">
@@ -80,7 +80,6 @@
                             <button type="button"
                                 class="text-center rounded-xl bg-slate-300 text-slate-800 px-6 py-2 font-semibold">Cancel</button>
                         </x-dialog.close>
-
                         <x-dialog.close>
                             <button :disabled="confirmation !== 'confirm'"
                                 x-on:click=" await $wire.$dispatch('delete'); $dialog.close()" type="button"
@@ -90,6 +89,5 @@
                 </div>
             </x-dialog.panel>
         </x-dialog>
-
     </td>
 </tr>
